@@ -28,7 +28,7 @@ public class DataConfig {
 		LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
 		emfb.setDataSource(dataSource);
 		emfb.setJpaVendorAdapter(jpaVendorAdapter);
-		emfb.setPackagesToScan("pt.nowak.familytree.repository.domain");
+		emfb.setPackagesToScan("pt.nowak.familytree.repository.entities");
 
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
