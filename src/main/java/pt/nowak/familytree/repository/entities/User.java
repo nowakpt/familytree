@@ -1,5 +1,7 @@
 package pt.nowak.familytree.repository.entities;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +20,7 @@ public class User {
 	@Column(length = 60, nullable = false)
 	private String password; //TODO encryption
 
+	@Email
 	@Column(length = 50, nullable = false)
 	private String emailAddress;
 
