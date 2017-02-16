@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+//@Table(name = "user")
 public class User {
 
 	@Id
@@ -12,24 +13,29 @@ public class User {
 	@Column(name = "userId")
 	private Long id;
 
+	// @NotNull
 	@Column(length = 40, nullable = false)
 	private String username;
 
 	@Column(length = 60, nullable = false)
-	private String password; //TODO encryption
+	private String password; //TODO encryption //don't do encryption here, let it to Spring Security configuration
 
+//	@Email
+//	@NotNull instead of nullable
 	@Column(length = 50, nullable = false)
 	private String emailAddress;
 
+//	@Size?
+//	@NotNull?
 	@OneToMany(mappedBy = "owner")
-	private List<Tree> ownedTrees;
+	private List<Tree> ownedTrees /* = new Collections.emptyList() because fuck NullPointerExceptions*/;
 
 	@ManyToMany
 	@JoinTable(
 			name = "TreeAllowedUsers",
 			joinColumns = @JoinColumn(name = "allowedUser"),
 			inverseJoinColumns = @JoinColumn(name = "tree"))
-	private Set<Tree> modificableTrees;
+	private Set<Tree> modificableTrees; //mutableTrees
 
 
 	public User() {}
@@ -38,7 +44,7 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) { // I don't think you need setter for id.
 		this.id = id;
 	}
 
@@ -71,14 +77,14 @@ public class User {
 	}
 
 	public void setOwnedTrees(List<Tree> ownedTrees) {
-		this.ownedTrees = ownedTrees;
+		this.ownedTrees = ownedTrees; // should be a copy of list, so no one could modify it outside
 	}
 
 	public Set<Tree> getModificableTrees() {
-		return modificableTrees;
+		return modificableTrees; // Collections.unmodifiableSet(modificableTrees); or copy
 	}
 
-	public void setModificableTrees(Set<Tree> modificableTrees) {
+	public void setModificableTrees(Set<Tree> modificableTrees) { // what is the difference between this and setOwnedTrees?
 		this.modificableTrees = modificableTrees;
 	}
 }

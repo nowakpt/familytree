@@ -1,5 +1,7 @@
 package pt.nowak.familytree.repository.entities;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,19 +13,20 @@ public class Tree {
 	@Column(name = "treeId")
 	private Long id;
 
+	//In most of fields you have @Column
 	@Lob
-	private String note;
+	private String note/*= ""; or return optional - it is good practice*/;
 
 	@ManyToOne
 	@JoinColumn(name = "owner", nullable = false)
 	private User owner;
 
 	@ManyToMany(mappedBy = "modificableTrees")
-	private Set<User> allowedModifiers;
+	private Set<User> allowedModifiers /* = Collections.emptySet()*/;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL/*, fetch = FetchType.EAGER or FetchType.LAZY*/)
 	@JoinColumn(name="tree")
-	private Set<Person> familyMembers;
+	private Set<Person> familyMembers /* = Collections.emptySet()*/;
 
 
 	public Tree() {}
@@ -32,7 +35,7 @@ public class Tree {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) { //same as in user
 		this.id = id;
 	}
 

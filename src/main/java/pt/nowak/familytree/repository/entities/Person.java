@@ -17,6 +17,7 @@ public class Person {
 	@Column(length = 40)
 	private String lastName;
 
+	//Maybe some validation that birth < death if both not null
 	private Date dateOfBirth;
 
 	private Date dateOfDeath;
@@ -26,6 +27,7 @@ public class Person {
 
 	@ManyToOne
 	@JoinColumn(name = "father")
+//	it probably should be lazy because it will download whole tree down to this person
 	private Person father;
 
 	@ManyToOne
