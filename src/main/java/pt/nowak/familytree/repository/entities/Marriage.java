@@ -20,4 +20,38 @@ public class Marriage {
 	private Person wife;
 
 	private Date weddingDate;
+
+	public Marriage() {}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Person getHusband() {
+		return husband;
+	}
+
+	public void setHusband(Person husband) {
+		this.husband = husband;
+	}
+
+	public Person getWife() {
+		return wife;
+	}
+
+	public void setWife(Person wife) {
+		this.wife = wife;
+	}
+
+	public Date getWeddingDate() {
+		return weddingDate;
+	}
+
+	public void setWeddingDate(Date weddingDate) {
+		this.weddingDate = weddingDate;
+	}
 }
