@@ -45,10 +45,6 @@ public class Person {
 		this.mother = builder.mother;
 	}
 
-	public enum Gender {
-		MALE, FEMALE
-	}
-
 	static public class PersonBuilder {
 		private Long id;
 		private String firstName;
