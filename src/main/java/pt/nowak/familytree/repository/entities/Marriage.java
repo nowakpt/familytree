@@ -19,6 +19,7 @@ public class Marriage {
 	@JoinColumn(name = "wife")
 	private Person wife;
 
+	@Column
 	private Date weddingDate;
 
 	public Marriage() {}

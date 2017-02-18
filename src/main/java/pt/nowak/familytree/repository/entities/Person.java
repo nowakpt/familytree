@@ -17,8 +17,10 @@ public class Person {
 	@Column(length = 40)
 	private String lastName;
 
+	@Column
 	private Date dateOfBirth;
 
+	@Column
 	private Date dateOfDeath;
 
 	@Lob

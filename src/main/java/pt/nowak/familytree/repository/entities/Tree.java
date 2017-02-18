@@ -12,6 +12,7 @@ public class Tree {
 	private Long id;
 
 	@Lob
+	@Column
 	private String note;
 
 	@ManyToOne
