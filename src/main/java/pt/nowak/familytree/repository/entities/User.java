@@ -14,14 +14,14 @@ public class User {
 	@Column(name = "userId")
 	private Long id;
 
-	@Column(length = 40, nullable = false)
+	@Column(length = 40, nullable = false, unique = true)
 	private String username;
 
 	@Column(length = 60, nullable = false)
 	private String password; //TODO encryption
 
 	@Email
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = false, unique = true)
 	private String emailAddress;
 
 	@OneToMany(mappedBy = "owner")
