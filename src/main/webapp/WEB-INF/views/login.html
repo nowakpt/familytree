@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>FamilyTree - log in</title>
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.1.0/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../resources/styles/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Family Tree</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a th:href="@{/login}">Log in</a></li>
+				<li><a th:href="@{/signup}">Sign up</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="page-header">
+				<h2>Log in</h2>
+			</div>
+
+			<form class="form-signup center-block" method="post" th:object="${loginForm}" th:action="@{/login}">
+				<div class="form-group">
+					<label th:for="*{username}">Username:</label>
+					<input class="form-control" th:field="*{username}" required autofocus>
+				</div>
+
+				<div class="form-group">
+					<label th:for="*{password}">Password:</label>
+					<input type="password" class="form-control" th:field="*{password}" required>
+				</div>
+
+				<button class="btn btn-primary btn-lg center-block" type="submit">Log in</button>
+
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

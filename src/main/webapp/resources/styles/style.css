@@ -1,0 +1,15 @@
+/* custom style */
+
+body {
+	background: #f0f0f0;
+}
+
+.form-signup {
+	max-width: 400px;
+	padding: 15px;
+}
+
+.form-signup .label-error {
+	color: red;
+	font-weight: 700;
+}
